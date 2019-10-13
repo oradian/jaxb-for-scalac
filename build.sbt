@@ -2,7 +2,7 @@ val jaxb = "javax.xml.bind" % "jaxb-api" % "2.3.1"
 
 organization := "com.oradian.util"
 name := "jaxb-for-scalac"
-version := jaxb.revision
+version := jaxb.revision + "-0"
 
 crossScalaVersions := Seq("2.12.10", "2.13.1")
 
@@ -15,4 +15,4 @@ assemblyJarName in ThisBuild := s"${name.value}_${scalaBinaryVersion.value}.jar"
 fullClasspath in assembly := (fullClasspath in Compile).value
 assemblyExcludedJars in assembly := (fullClasspath in assembly).value.filter(_.data.getName != s"${jaxb.name}-${jaxb.revision}.jar")
 addArtifact(artifact in (Compile, assembly), assembly)
-publishArtifact := false
+publishArtifact in (Compile, packageBin) := false
