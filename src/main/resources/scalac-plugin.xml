@@ -1,0 +1,4 @@
+<plugin>
+  <name>jaxb-plugin</name>
+  <classname>com.oradian.util.JaxbPlugin</classname>
+</plugin>
